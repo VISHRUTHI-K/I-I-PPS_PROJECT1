@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+    int randomNumber, userGuess;
+    int count=0;
+    srand(time(NULL));
+    randomNumber = rand() % 100 + 1;
+    printf("I have a number in my mind.It's  between 1 and 100. Can you guess it?\n");
+    do
+    {
+        printf("Enter your guess: ");
+        scanf("%d", &userGuess);
+        if (userGuess < randomNumber)
+        {
+            printf("Good Try But Too low! Try again.\n");
+            count++;
+        }
+        else if (userGuess > randomNumber)
+        {
+            printf("Good Try But Too high! Try again.\n");
+            count++;
+        }
+        else
+        {
+            printf("Yay! You got it! The number was %d \n", randomNumber);
+            count++;
+            printf("The Number Of Attempts You Made Was %d \n",count);
+            if(count<3)
+            {
+                printf("BRAVO!That Was A Perfect Guess");
+            }
+            else if(count>=3 && count<=6)
+            { 
+                printf("Wooh! That Was Impressive!");
+            }
+            else if(count>6 && count <=10)
+            {
+                printf ("Well Done! That Was A Great Game");
+            }
+            else{
+                printf ("Correct! But Took Too Long, Can Do Better");
+            }
+            
+        }
+        
+    } while (userGuess != randomNumber);
+    return 0;
+}
+
+
+
+
+OUTPUT:
+
+I have a number in my mind.It's between 1 and 100. Can you guess it?
+
+Enter your guess: 50
+
+Good Try But Too high! Try again.
+
+Enter your guess: 40
+
+Good Try But Too low! Try again.
+
+Enter your guess: 45
+
+Yay! You got it! The number was 45
+
+The Number Of Attempts You Made Was 3
+
+Wooh! That Was Impressive!
